@@ -97,10 +97,10 @@ ls "/Applications/ClashX Meta.app" 2>/dev/null
 
 ## 备用方案：一键脚本
 
-如果用户希望用脚本一次性完成，可以运行本仓库附带的部署脚本：
+如果用户希望用脚本一次性完成，可以运行本插件附带的部署脚本：
 
 ```bash
-bash <本仓库路径>/scripts/singbox/deploy.sh
+bash ${CLAUDE_PLUGIN_ROOT}/scripts/singbox/deploy.sh
 ```
 
 该脚本包含完整的交互式引导流程。

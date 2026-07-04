@@ -28,7 +28,7 @@ Codex CLI 通过 `wire_api` 决定用哪种协议跟模型端点通信：
 
 ## 工作流程
 
-脚本路径：`$SKILL_DIR/../scripts/cc-switch-heal/heal.py`（用 `python3` 执行，macOS 自带，无需安装依赖）。
+脚本路径：`${CLAUDE_PLUGIN_ROOT}/scripts/cc-switch-heal`（下文命令里的 `<脚本路径>` 均指这个目录，脚本是其中的 `heal.py`，用 `python3` 执行，macOS 自带，无需安装依赖）。
 
 ### 1. 诊断（默认起点，只读，绝对安全）
 

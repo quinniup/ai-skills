@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ai-skills",
+  "owner": {
+    "name": "Quinn",
+    "email": "howzequinn@gmail.com"
+  },
+  "description": "Quinn 的 Claude Code 技能工具集，面向团队分发的交互式运维/部署技能。",
+  "plugins": [
+    {
+      "name": "cc-switch-heal",
+      "source": "./",
+      "skills": ["./skills/cc-switch-heal"],
+      "strict": false,
+      "description": "cc-switch / Codex 配置自愈助手，诊断并修复 provider 的 wire_api 协议不匹配（如百炼被错配成 responses 导致会话开不起来），全程自动备份可回滚。",
+      "version": "1.0.0",
+      "author": {
+        "name": "Quinn",
+        "email": "howzequinn@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": ["cc-switch", "codex", "wire_api", "dashscope", "troubleshooting"],
+      "category": "productivity"
+    },
+    {
+      "name": "singbox-deploy",
+      "source": "./",
+      "skills": ["./skills/singbox-deploy"],
+      "strict": false,
+      "description": "一键部署 sing-box 代理服务到 VPS，自动配置 SSH 免密登录并下载 Clash/Mihomo 配置到本机。",
+      "version": "1.0.0",
+      "author": {
+        "name": "Quinn",
+        "email": "howzequinn@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": ["sing-box", "proxy", "vps", "clash", "mihomo", "deployment"],
+      "category": "networking"
+    }
+  ]
+}
