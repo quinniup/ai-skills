@@ -17,18 +17,30 @@ git clone https://github.com/quinniup/ai-tools.git
 | 技能 | 说明 | 调用方式 |
 |------|------|----------|
 | `singbox-deploy` | sing-box 代理一键部署（面向零基础用户） | `/singbox-deploy` |
+| `openclaw-init` | OpenClaw 一键初始化，通过 CC Switch 配置 API 和通讯渠道 | `/openclaw-init` |
+| `cc-switch-heal` | cc-switch / Codex 配置自愈，诊断并修复 provider 协议不匹配（百炼被错配成 responses 导致会话开不起来），自动备份可回滚 | `/cc-switch-heal` |
 
 ## 目录结构
 
 ```
 ai-tools/
-├── .claude/
-│   └── skills/
-│       └── singbox-deploy.md      # 技能定义文件
+├── skills/
+│   ├── singbox/
+│   │   └── singbox-deploy.md
+│   ├── cc-switch-heal/
+│   │   └── cc-switch-heal.md
+│   └── <new-skill>
+│       └── <new-skill>.md
 ├── scripts/
-│   └── singbox/
-│       └── deploy.sh              # 部署脚本
-├── CLAUDE.md                      # Claude Code 项目指令
+│   ├── singbox/
+│   │   └── deploy.sh
+│   ├── cc-switch-heal/
+│   │   └── heal.py
+│   └── <new-skill>/
+│       └── ...
+├── templates/
+│   └── skill-template.md           # 新技能模板
+├── CLAUDE.md
 ├── README.md
 └── .gitignore
 ```
@@ -38,17 +50,12 @@ ai-tools/
 两种方式：
 
 1. **整仓引用**：对方克隆本仓库，在其 `~/.claude/settings.json` 中配置 `skillsPath` 指向本仓库的 `.claude/skills/`
-2. **单技能复制**：将 `.claude/skills/singbox-deploy.md` 和 `scripts/singbox/` 复制到对方项目中
+2. **单技能复制**：将对应的 `.claude/skills/<name>.md` 和 `scripts/<name>/` 复制到对方项目中
 
-## 贡献新技能
+## 新建技能
 
-在 `.claude/skills/` 下新建 `<skill-name>.md`，遵循 frontmatter 格式：
+参考 `templates/skill-template.md`，按以下步骤添加：
 
-```markdown
----
-name: skill-name
-description: 一句话描述
----
-
-技能指令内容...
-```
+1. 复制模板到 `skills/<skill-name>/<skill-name>.md`
+2. 如果有配套脚本，放到 `scripts/<skill-name>/`
+3. 更新本 README 的技能表格
