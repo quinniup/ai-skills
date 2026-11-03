@@ -1,0 +1,26 @@
+# Repository Agent Guide
+
+## 身份与边界
+
+- 仓库：{{repository}}；技术栈：{{verified_stack}}。
+- 负责：{{ownership}}；不负责：{{outside_scope}}。
+
+## 开工读取
+
+{{mandatory_rules_and_verified_links}}
+
+## 常用命令
+
+{{commands_verified_from_repo}}
+
+## 按任务读取
+
+{{task_to_reference_mapping}}
+
+## 安全与交付
+
+保留用户已有改动；只在授权范围内操作。实际运行适用验证，报告未跑项与风险。不要从本仓实现推断外仓或部署现状。默认不提交、推送或发布。
+
+## 文件组织
+
+共享内容见 [.agents](.agents/README.md)。普通链接不代表自动加载，按上面要求实际读取；安全门禁需权限/脚本/测试/CI落实。

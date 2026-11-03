@@ -8,6 +8,18 @@
   "description": "Quinn 的 Claude Code 技能工具集，面向团队分发的交互式运维/部署技能。",
   "plugins": [
     {
+      "name": "init-proj",
+      "source": "./",
+      "skills": ["./skills/init-proj"],
+      "strict": false,
+      "description": "初始化或迁移共享 Agent 工作区：盘点现有配置、集中共享正文、保留工具薄适配、隔离个人设置并验证迁移。",
+      "version": "1.0.0",
+      "author": {"name": "Quinn", "email": "howzequinn@gmail.com"},
+      "license": "MIT",
+      "keywords": ["agents", "workspace", "initialization", "migration"],
+      "category": "productivity"
+    },
+    {
       "name": "cc-switch-heal",
       "source": "./",
       "skills": ["./skills/cc-switch-heal"],
@@ -23,6 +35,21 @@
       "category": "productivity"
     },
     {
+      "name": "swimming-times",
+      "source": "./",
+      "skills": ["./skills/swimming-times"],
+      "strict": false,
+      "description": "把 QQ 音乐 Mac 的加密下载（.mgg/.mflac）批量转成 Shokz OpenSwim Pro 可播放的 MP3/FLAC，自动跳过已转换文件，可选清理源文件并引导拷贝到耳机。",
+      "version": "1.0.0",
+      "author": {
+        "name": "Quinn",
+        "email": "howzequinn@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": ["qqmusic", "mgg", "mflac", "openswim", "swimming", "transcode"],
+      "category": "media"
+    },
+    {
       "name": "singbox-deploy",
       "source": "./",
       "skills": ["./skills/singbox-deploy"],
@@ -36,6 +63,21 @@
       "license": "MIT",
       "keywords": ["sing-box", "proxy", "vps", "clash", "mihomo", "deployment"],
       "category": "networking"
+    },
+    {
+      "name": "reset-cc-env",
+      "source": "./",
+      "skills": ["./skills/reset-cc-env"],
+      "strict": false,
+      "description": "仅清理 Claude Code 本地账号相关性敏感信息与遥测痕迹，默认保留会话历史和项目用量字段；先盘点、干跑、确认，再由用户在退出所有 Claude Code 后从普通终端执行，可选剥离用量、退出登录、关闭云会话与遥测。",
+      "version": "1.0.0",
+      "author": {
+        "name": "Quinn",
+        "email": "howzequinn@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": ["claude-code", "privacy", "telemetry", "fingerprint", "reset"],
+      "category": "security"
     }
   ]
 }
