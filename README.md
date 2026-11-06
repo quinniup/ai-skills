@@ -12,17 +12,19 @@ git clone https://github.com/quinniup/ai-tools.git
 
 然后在你的项目 `.claude/settings.json` 中添加技能路径，或直接将 `.claude/skills/` 下的文件复制到你自己项目的对应目录。
 
-## 包含的技能
+## 技能总览
 
-| 技能 | 说明 | 调用方式 |
-|------|------|----------|
-| `init-proj` | 共享 Agent 工作区初始化、审计与迁移；支持 audit / init / migrate | `/init-proj`（插件安装后可能带命名空间） |
-| `singbox-deploy` | sing-box 代理一键部署（面向零基础用户） | `/singbox-deploy` |
-| `openclaw-init` | OpenClaw 一键初始化，通过 CC Switch 配置 API 和通讯渠道 | `/openclaw-init` |
-| `cc-switch-heal` | cc-switch / Codex 配置自愈，诊断并修复 provider 协议不匹配（百炼被错配成 responses 导致会话开不起来），自动备份可回滚 | `/cc-switch-heal` |
-| `swimming-times` | QQ 音乐加密歌曲批量转 MP3/FLAC，整理 Shokz OpenSwim Pro 游泳歌单，可选清理源文件 | `/swimming-times` |
-| `reset-cc-env` | 仅清理 Claude Code 本地账号相关性敏感信息与遥测痕迹，默认保留会话历史和项目用量字段；退出所有 Claude Code 后从普通终端执行，可选剥离用量、退出登录、关闭云会话与遥测 | `/reset-cc-env` |
-| `docs-template` | 按团队统一模板撰写文档，当前提供研发技术设计方案模板；问答收集信息后结合代码逐节填写 | `/docs-template` |
+| skill name | description | label | version | remark |
+|------|------|------|------|------|
+| [`init-proj`](skills/init-proj/SKILL.md) | 初始化、审计或迁移项目的共享 Agent 工作区（AGENTS/CLAUDE 入口、规则、角色、记忆） | 研发 | 1.0.0 | 默认 audit 只读，init / migrate 需明确授权 |
+| [`docs-template`](skills/docs-template/SKILL.md) | 按团队统一模板写文档，问答收集信息后结合代码逐节填写，行文言简意赅 | 研发 | 1.0.0 | 当前仅含研发技术设计方案模板 |
+| [`singbox-deploy`](skills/singbox-deploy/SKILL.md) | 一键部署 sing-box 代理到 VPS，配置 SSH 免密并下载 Clash/Mihomo 配置 | 工具 | 1.0.0 | 需要 VPS 的 IP 和 root 密码 |
+| [`reset-cc-env`](skills/reset-cc-env/SKILL.md) | 清理 Claude Code 本地账号相关信息与遥测痕迹，默认保留会话历史 | 工具 | 1.0.0 | 需退出所有 Claude Code 后在普通终端执行 |
+| [`swimming-times`](skills/swimming-times/SKILL.md) | QQ 音乐加密歌曲批量转 MP3/FLAC，整理 Shokz OpenSwim Pro 游泳歌单 | 娱乐 | 1.0.0 | 仅 macOS，依赖 qmc2mp3、ffmpeg |
+
+- 调用方式：`/<skill name>`，插件安装后可能带命名空间。
+- label 可选值：娱乐、研发、效率、工具、创作，可按需扩充。
+- 已废弃：`cc-switch-heal`（2026-11-05 移除）。
 
 ## init-proj
 
@@ -82,15 +84,11 @@ ai-tools/
 ├── skills/
 │   ├── singbox/
 │   │   └── singbox-deploy.md
-│   ├── cc-switch-heal/
-│   │   └── cc-switch-heal.md
 │   └── <new-skill>
 │       └── <new-skill>.md
 ├── scripts/
 │   ├── singbox/
 │   │   └── deploy.sh
-│   ├── cc-switch-heal/
-│   │   └── heal.py
 │   └── <new-skill>/
 │       └── ...
 ├── templates/
@@ -113,4 +111,4 @@ ai-tools/
 
 1. 复制模板到 `skills/<skill-name>/<skill-name>.md`
 2. 如果有配套脚本，放到 `scripts/<skill-name>/`
-3. 更新本 README 的技能表格
+3. 在本 README 的「技能总览」表格补一行（填写 label 和 version）
