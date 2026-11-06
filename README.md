@@ -22,6 +22,7 @@ git clone https://github.com/quinniup/ai-tools.git
 | `cc-switch-heal` | cc-switch / Codex 配置自愈，诊断并修复 provider 协议不匹配（百炼被错配成 responses 导致会话开不起来），自动备份可回滚 | `/cc-switch-heal` |
 | `swimming-times` | QQ 音乐加密歌曲批量转 MP3/FLAC，整理 Shokz OpenSwim Pro 游泳歌单，可选清理源文件 | `/swimming-times` |
 | `reset-cc-env` | 仅清理 Claude Code 本地账号相关性敏感信息与遥测痕迹，默认保留会话历史和项目用量字段；退出所有 Claude Code 后从普通终端执行，可选剥离用量、退出登录、关闭云会话与遥测 | `/reset-cc-env` |
+| `docs-template` | 按团队统一模板撰写文档，当前提供研发技术设计方案模板；问答收集信息后结合代码逐节填写 | `/docs-template` |
 
 ## init-proj
 
@@ -63,6 +64,16 @@ bash scripts/swimming-times/install-qmc2mp3.sh
 ```
 
 脚本支持 macOS / Linux（WSL 可用），只依赖 `bash`、`jq`、`du`、`find`，macOS 额外使用系统 `security` 命令。详见 [skills/reset-cc-env](skills/reset-cc-env/SKILL.md)。
+
+## docs-template
+
+按团队统一模板写文档。当前提供研发技术设计方案模板（[templates/tech-design.md](skills/docs-template/templates/tech-design.md)），章节覆盖概述、详细设计、接口、表结构、迁移、配置、发布与回滚、风险。技能会先问清主题、需求材料、改动类型和输出位置，再读代码按模板逐节填写；行文要求言简意赅：优先用图、表、列表，只写结论和事实，不写铺垫和空话；不涉及的章节标注原因，缺信息处标 `【待补充】`，不编造内容。
+
+新增模板：在 `skills/docs-template/templates/` 放模板文件，并在 [SKILL.md](skills/docs-template/SKILL.md) 的“可用模板”表格补一行。
+
+```text
+/plugin install docs-template --marketplace quinniup/ai-skills
+```
 
 ## 目录结构
 

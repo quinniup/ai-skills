@@ -78,6 +78,21 @@
       "license": "MIT",
       "keywords": ["claude-code", "privacy", "telemetry", "fingerprint", "reset"],
       "category": "security"
+    },
+    {
+      "name": "docs-template",
+      "source": "./",
+      "skills": ["./skills/docs-template"],
+      "strict": false,
+      "description": "按团队统一模板撰写文档，当前提供研发技术设计方案模板；通过问答收集信息，结合代码和需求材料逐节填写，行文言简意赅、以图表和结论为主。",
+      "version": "1.0.0",
+      "author": {
+        "name": "Quinn",
+        "email": "howzequinn@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": ["docs", "template", "tech-design", "design-doc"],
+      "category": "productivity"
     }
   ]
 }
